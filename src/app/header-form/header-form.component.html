@@ -1,0 +1,21 @@
+<form>
+<h4 class="card-title text-capitalize">Add Section</h4>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="Header">Section Header</label>
+            <input type="text" class="form-control" #sectionHeader>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="detail">Section Detail</label>
+            <textarea class="form-control" rows="5" cols="30" #sectionDetails></textarea>
+        </div>
+    </div>
+    <div class="card flex justify-content-center">
+        <button pButton pRipple label="Submit" class="p-button-success" (click)="createAccordian()"></button>
+    </div>
+</div>
+</form>

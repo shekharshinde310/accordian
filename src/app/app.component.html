@@ -4,14 +4,14 @@
       <div class="col-md-4">
         <div class="card p-4">
           <div class="card-body">
-            <app-header-form (dataEvent)="listenFromChild($event)"></app-header-form>
+            <app-header-form (tellToParentAccor)="newReceivedAccor = $event"></app-header-form>
           </div>
         </div>
       </div>
       <div class="col-md-8">
         <div class="card p-4">
           <div class="card-body">
-           <app-acc-detail [recieveData]="info" [recieveData2]="info2"></app-acc-detail>
+           <app-acc-detail [newAccSetter]='newReceivedAccor'></app-acc-detail>
           </div>
         </div>
       </div>

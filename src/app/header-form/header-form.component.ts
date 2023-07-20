@@ -1,4 +1,5 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Accor } from '../service/accor.model';
 
 @Component({
   selector: 'app-header-form',
@@ -6,17 +7,17 @@ import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular
   styleUrls: ['./header-form.component.css']
 })
 export class HeaderFormComponent {
-  @Output() dataEvent = new EventEmitter;
-  value : string | undefined;
-  value1 : string | undefined;
-  @ViewChild('sectionHeader') sectionHeaderData: ElementRef | any;
-  @ViewChild('sectionDetails') sectionDetailsData: ElementRef | any;
+  @ViewChild('sectionHeader') sectionHeader : any;
+  @ViewChild('sectionDetails') sectionDetails : any;
+
+  @Output() tellToParentAccor = new EventEmitter();
 
   createAccordian() {
     // console.log('accordian trigger')
-    const newAcc = [this.sectionHeaderData.nativeElement.value, this.sectionDetailsData.nativeElement.value];
+    const newAcc = new Accor(this.sectionHeader.nativeElement.value,this.sectionDetails.nativeElement.value)
+  // console.log(newAcc)    
     // console.log(newAcc)
-    this.dataEvent.emit(newAcc);
+    this.tellToParentAccor.emit(newAcc)
   }
 
 }
